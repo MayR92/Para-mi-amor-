@@ -1,265 +1,223 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida ❤️</title>
 
-<title>Para ti, mi amor 🌻❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ffe6f0, #fff5f8);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-body {
-  min-height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #fff8c9, #ffd84d, #fff1a8);
-  font-family: Georgia, serif;
-  color: #5b3b00;
-}
+        .contenedor {
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
 
-/* Luz de fondo */
-.luz {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.45);
-  filter: blur(50px);
-  animation: luz 4s infinite alternate;
-}
+        h1 {
+            margin-top: 50px;
+            color: #d6336c;
+            font-size: 28px;
+        }
 
-@keyframes luz {
-  from {
-    transform: scale(.8);
-  }
-  to {
-    transform: scale(1.3);
-  }
-}
+        .mensaje {
+            color: #8a3150;
+            font-size: 17px;
+            margin: 10px 25px;
+        }
 
-/* Carta */
-.carta {
-  width: 90%;
-  max-width: 600px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 35px 25px;
-  background: rgba(255,255,255,.94);
-  border-radius: 28px;
-  text-align: center;
-  box-shadow: 0 15px 50px rgba(90,60,0,.3);
-  border: 3px solid #ffd43b;
-  z-index: 5;
-  animation: aparecer 1.5s ease;
-}
+        .jardin {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 400px;
+        }
 
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .tallo {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 8px;
+            height: 0;
+            background: #3c9b4a;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            transition: height 3s ease;
+        }
 
-/* Girasol */
-.girasol {
-  font-size: 75px;
-  display: inline-block;
-  animation: balanceo 3s infinite ease-in-out;
-}
+        .flor {
+            position: absolute;
+            font-size: 65px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 1s ease;
+        }
 
-@keyframes balanceo {
-  0%,100% {
-    transform: rotate(-7deg);
-  }
-  50% {
-    transform: rotate(7deg);
-  }
-}
+        .flor1 {
+            left: 20px;
+            top: 120px;
+        }
 
-h1 {
-  margin-top: 10px;
-  font-size: clamp(2rem, 8vw, 3.2rem);
-  color: #d89400;
-}
+        .flor2 {
+            left: 105px;
+            top: 45px;
+        }
 
-.subtitulo {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #856000;
-}
+        .flor3 {
+            right: 20px;
+            top: 120px;
+        }
 
-.mensaje {
-  margin-top: 25px;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  text-align: left;
-}
+        .flor4 {
+            left: 105px;
+            top: 170px;
+            font-size: 55px;
+        }
 
-.mensaje p {
-  margin-bottom: 18px;
-}
+        .agua {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 55px;
+            cursor: pointer;
+            animation: mover 1.5s infinite;
+            z-index: 10;
+        }
 
-.frase {
-  text-align: center;
-  color: #d58b00;
-  font-size: 1.35rem;
-  font-style: italic;
-  margin: 25px 5px;
-  line-height: 1.6;
-}
+        .instruccion {
+            position: absolute;
+            bottom: 90px;
+            width: 100%;
+            color: #555;
+            font-size: 15px;
+        }
 
-.final {
-  margin-top: 25px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #c98500;
-}
+        .final {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            color: #d6336c;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
 
-.corazon {
-  display: inline-block;
-  color: #e53935;
-  animation: latir 1s infinite;
-}
+        @keyframes mover {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
 
-@keyframes latir {
-  0%,100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-}
-
-/* Girasoles que caen */
-.flor {
-  position: fixed;
-  top: -70px;
-  font-size: 35px;
-  z-index: 1;
-  animation: caer linear infinite;
-}
-
-@keyframes caer {
-  0% {
-    transform: translateY(-80px) rotate(0deg);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.f1 { left: 5%; animation-duration: 7s; }
-.f2 { left: 20%; animation-duration: 9s; animation-delay: 2s; }
-.f3 { left: 40%; animation-duration: 8s; animation-delay: 1s; }
-.f4 { left: 65%; animation-duration: 10s; animation-delay: 3s; }
-.f5 { left: 85%; animation-duration: 7s; animation-delay: 4s; }
-
-@media(max-width:480px) {
-
-  .carta {
-    padding: 25px 18px;
-  }
-
-  .girasol {
-    font-size: 60px;
-  }
-
-  .mensaje {
-    font-size: 1.05rem;
-  }
-
-  .frase {
-    font-size: 1.2rem;
-  }
-}
-</style>
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="luz"></div>
+<div class="contenedor">
 
-<!-- Girasoles flotando -->
-<div class="flor f1">🌻</div>
-<div class="flor f2">🌻</div>
-<div class="flor f3">🌻</div>
-<div class="flor f4">🌻</div>
-<div class="flor f5">🌻</div>
+    <h1>🌸 Para ti, mi amor 🌸</h1>
 
-<div class="carta">
-
-  <div class="girasol">🌻</div>
-
-  <h1>Para ti, mi amor</h1>
-
-  <div class="subtitulo">
-    Solo quería recordarte algo... ❤️
-  </div>
-
-  <div class="mensaje">
-
-    <p>
-      Mi amor, quizá no necesito una fecha especial para decirte
-      lo mucho que significas para mí.
-    </p>
-
-    <p>
-      Simplemente quería que hoy recibieras este pequeño detalle
-      para recordarte que <strong>te amo muchísimo</strong>.
-    </p>
-
-    <p>
-      Eres una persona muy especial en mi vida y me siento
-      afortunado de poder compartir tantos momentos contigo.
-      Tu sonrisa, tu forma de ser y cada pequeño detalle de ti
-      hacen que te quiera cada día un poquito más.
-    </p>
-
-    <div class="frase">
-      “Si pudiera regalarte algo tan bonito como lo que siento
-      por ti, te regalaría un jardín entero de girasoles.” 🌻
+    <div class="mensaje">
+        Riega nuestro amor y mira cómo florece ❤️
     </div>
 
-    <p>
-      Nunca quiero que dudes de lo importante que eres para mí.
-      Quiero seguir cuidándote, apoyándote, haciéndote sonreír
-      y estando a tu lado en los buenos y en los malos momentos.
-    </p>
+    <div class="jardin">
 
-    <p>
-      Gracias simplemente por existir y por formar parte de mi vida.
-      No sabes cuánto te amo y lo mucho que deseo seguir
-      construyendo momentos bonitos contigo.
-    </p>
+        <div class="tallo" id="tallo"></div>
 
-  </div>
+        <div class="flor flor1">🌹</div>
+        <div class="flor flor2">🌷</div>
+        <div class="flor flor3">🌹</div>
+        <div class="flor flor4">🌸</div>
 
-  <div class="final">
-    Te amo muchísimo, mi vida
-    <span class="corazon">❤️</span>
-    <br>
-    🌻 Siempre tú 🌻
-  </div>
+    </div>
+
+    <div class="instruccion" id="instruccion">
+        Toca el 💧 para hacer crecer las flores
+    </div>
+
+    <div class="agua" id="agua">
+        💧
+    </div>
+
+    <div class="final" id="final">
+        🌹 Nuestro amor florece cada día 🌹<br><br>
+        Te amo muchísimo ❤️
+    </div>
 
 </div>
+
+<script>
+
+    const agua = document.getElementById("agua");
+    const tallo = document.getElementById("tallo");
+    const flores = document.querySelectorAll(".flor");
+    const instruccion = document.getElementById("instruccion");
+    const final = document.getElementById("final");
+
+    let riegos = 0;
+
+    agua.addEventListener("click", function () {
+
+        riegos++;
+
+        tallo.style.height = (riegos * 70) + "px";
+
+        if (riegos >= 1) {
+            flores[0].style.opacity = "1";
+            flores[0].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 2) {
+            flores[1].style.opacity = "1";
+            flores[1].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 3) {
+            flores[2].style.opacity = "1";
+            flores[2].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 4) {
+            flores[3].style.opacity = "1";
+            flores[3].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 5) {
+
+            agua.style.display = "none";
+            instruccion.style.display = "none";
+
+            final.style.opacity = "1";
+        }
+
+    });
+
+</script>
 
 </body>
 </html>
