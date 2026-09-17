@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ffe6f0, #fff5f8);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #d6336c;
+            font-size: 28px;
+        }
+
+        .mensaje {
+            color: #8a3150;
+            font-size: 17px;
+            margin: 10px 25px;
+        }
+
+        .jardin {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 400px;
+        }
+
+        .tallo {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 8px;
+            height: 0;
+            background: #3c9b4a;
+            border-radius: 10px;
+            transform: translateX(-50%);
+            transition: height 3s ease;
+        }
+
+        .flor {
+            position: absolute;
+            font-size: 65px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 1s ease;
+        }
+
+        .flor1 {
+            left: 20px;
+            top: 120px;
+        }
+
+        .flor2 {
+            left: 105px;
+            top: 45px;
+        }
+
+        .flor3 {
+            right: 20px;
+            top: 120px;
+        }
+
+        .flor4 {
+            left: 105px;
+            top: 170px;
+            font-size: 55px;
+        }
+
+        .agua {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 55px;
+            cursor: pointer;
+            animation: mover 1.5s infinite;
+            z-index: 10;
+        }
+
+        .instruccion {
+            position: absolute;
+            bottom: 90px;
+            width: 100%;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .final {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            color: #d6336c;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        @keyframes mover {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>🌸 Para ti, mi amor 🌸</h1>
+
+    <div class="mensaje">
+        Riega nuestro amor y mira cómo florece ❤️
+    </div>
+
+    <div class="jardin">
+
+        <div class="tallo" id="tallo"></div>
+
+        <div class="flor flor1">🌹</div>
+        <div class="flor flor2">🌷</div>
+        <div class="flor flor3">🌹</div>
+        <div class="flor flor4">🌸</div>
+
+    </div>
+
+    <div class="instruccion" id="instruccion">
+        Toca el 💧 para hacer crecer las flores
+    </div>
+
+    <div class="agua" id="agua">
+        💧
+    </div>
+
+    <div class="final" id="final">
+        🌹 Nuestro amor florece cada día 🌹<br><br>
+        Te amo muchísimo ❤️
+    </div>
+
+</div>
+
+<script>
+
+    const agua = document.getElementById("agua");
+    const tallo = document.getElementById("tallo");
+    const flores = document.querySelectorAll(".flor");
+    const instruccion = document.getElementById("instruccion");
+    const final = document.getElementById("final");
+
+    let riegos = 0;
+
+    agua.addEventListener("click", function () {
+
+        riegos++;
+
+        tallo.style.height = (riegos * 70) + "px";
+
+        if (riegos >= 1) {
+            flores[0].style.opacity = "1";
+            flores[0].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 2) {
+            flores[1].style.opacity = "1";
+            flores[1].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 3) {
+            flores[2].style.opacity = "1";
+            flores[2].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 4) {
+            flores[3].style.opacity = "1";
+            flores[3].style.transform = "scale(1)";
+        }
+
+        if (riegos >= 5) {
+
+            agua.style.display = "none";
+            instruccion.style.display = "none";
+
+            final.style.opacity = "1";
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
